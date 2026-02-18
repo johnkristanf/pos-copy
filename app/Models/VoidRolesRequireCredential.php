@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Roles $role
  * @property-read \App\Models\VoidReason $void_reason
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|VoidRolesRequireCredential newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|VoidRolesRequireCredential newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|VoidRolesRequireCredential query()
@@ -20,6 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|VoidRolesRequireCredential whereRoleId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|VoidRolesRequireCredential whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|VoidRolesRequireCredential whereVoidReasonId($value)
+ *
  * @mixin \Eloquent
  */
 class VoidRolesRequireCredential extends Model

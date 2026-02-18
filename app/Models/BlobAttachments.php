@@ -24,6 +24,7 @@ use Laravel\Scout\Searchable;
  * @property-read \App\Models\Customers|null $customer
  * @property-read \App\Models\Items|null $item
  * @property-read \App\Models\User|null $user
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|BlobAttachments newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|BlobAttachments newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|BlobAttachments onlyTrashed()
@@ -43,6 +44,7 @@ use Laravel\Scout\Searchable;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|BlobAttachments whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|BlobAttachments withTrashed(bool $withTrashed = true)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|BlobAttachments withoutTrashed()
+ *
  * @mixin \Eloquent
  */
 class BlobAttachments extends Model

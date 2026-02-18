@@ -29,6 +29,7 @@ use Laravel\Scout\Searchable;
  * @property-read \App\Models\KeyExpirationOption $key_expiration
  * @property-read Collection<int, \App\Models\Permissions> $permissions
  * @property-read int|null $permissions_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ApiKeys newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ApiKeys newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ApiKeys query()
@@ -44,6 +45,7 @@ use Laravel\Scout\Searchable;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ApiKeys whereLastUsedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ApiKeys whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ApiKeys whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class ApiKeys extends Model

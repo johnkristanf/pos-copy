@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\PurchasedItem> $items
  * @property-read int|null $items_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Purchased newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Purchased newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Purchased query()
@@ -24,6 +25,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Purchased whereReceivedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Purchased whereRemarks($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Purchased whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class Purchased extends Model

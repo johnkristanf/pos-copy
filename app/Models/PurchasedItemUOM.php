@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\PurchasedItem $purchaseItem
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|PurchasedItemUOM newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|PurchasedItemUOM newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|PurchasedItemUOM query()
@@ -19,6 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|PurchasedItemUOM whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|PurchasedItemUOM wherePurchasedItemId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|PurchasedItemUOM whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class PurchasedItemUOM extends Model

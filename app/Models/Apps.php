@@ -19,6 +19,7 @@ use Laravel\Scout\Searchable;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\ApiKeys> $api_keys
  * @property-read int|null $api_keys_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Apps newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Apps newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Apps onlyTrashed()
@@ -32,6 +33,7 @@ use Laravel\Scout\Searchable;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Apps whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Apps withTrashed(bool $withTrashed = true)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Apps withoutTrashed()
+ *
  * @mixin \Eloquent
  */
 class Apps extends Model

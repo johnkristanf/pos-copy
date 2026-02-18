@@ -29,6 +29,7 @@ use Laravel\Scout\Searchable;
  * @property-read \App\Models\Locations|null $location
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\ReturnsToSupplier> $returns
  * @property-read int|null $returns_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Suppliers newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Suppliers newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Suppliers onlyTrashed()
@@ -48,6 +49,7 @@ use Laravel\Scout\Searchable;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Suppliers whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Suppliers withTrashed(bool $withTrashed = true)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Suppliers withoutTrashed()
+ *
  * @mixin \Eloquent
  */
 class Suppliers extends Model

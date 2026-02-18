@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read \App\Models\Company $company
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\StockLocation> $stockLocations
  * @property-read int|null $stock_locations_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Branch newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Branch newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Branch onlyTrashed()
@@ -33,6 +34,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Branch whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Branch withTrashed(bool $withTrashed = true)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Branch withoutTrashed()
+ *
  * @mixin \Eloquent
  */
 class Branch extends Model

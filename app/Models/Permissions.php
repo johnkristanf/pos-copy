@@ -12,12 +12,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read int|null $app_features_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Features> $key_features
  * @property-read int|null $key_features_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Permissions newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Permissions newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Permissions query()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Permissions whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Permissions whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Permissions whereSlug($value)
+ *
  * @mixin \Eloquent
  */
 class Permissions extends Model

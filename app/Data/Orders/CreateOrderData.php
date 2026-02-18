@@ -2,11 +2,11 @@
 
 namespace App\Data\Orders;
 
+use Illuminate\Validation\Rule;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
 use Spatie\LaravelData\Support\Validation\ValidationContext;
-use Illuminate\Validation\Rule;
 
 class CreateOrderData extends Data
 {

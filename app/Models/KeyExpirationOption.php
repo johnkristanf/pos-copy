@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\ApiKeys> $api_keys
  * @property-read int|null $api_keys_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|KeyExpirationOption newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|KeyExpirationOption newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|KeyExpirationOption query()
@@ -20,6 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|KeyExpirationOption whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|KeyExpirationOption whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|KeyExpirationOption whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class KeyExpirationOption extends Model

@@ -23,6 +23,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \App\Models\User|null $preparer
  * @property-read \App\Models\User|null $rejecter
  * @property-read \App\Models\StockLocation $stockLocation
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|StockAdjustment newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|StockAdjustment newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|StockAdjustment query()
@@ -38,6 +39,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|StockAdjustment whereRejectedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|StockAdjustment whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|StockAdjustment whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class StockAdjustment extends Model

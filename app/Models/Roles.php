@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read int|null $app_permissions_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\User> $users
  * @property-read int|null $users_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Roles newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Roles newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Roles query()
@@ -24,6 +25,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Roles whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Roles whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Roles whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class Roles extends Model

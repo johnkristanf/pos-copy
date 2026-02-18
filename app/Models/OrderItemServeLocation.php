@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\OrderItem $order_item
  * @property-read \App\Models\StockLocation $stock_location
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderItemServeLocation newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderItemServeLocation newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderItemServeLocation query()
@@ -29,6 +30,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderItemServeLocation whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderItemServeLocation whereStockLocationId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderItemServeLocation whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class OrderItemServeLocation extends Model

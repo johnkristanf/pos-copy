@@ -29,6 +29,7 @@ use Laravel\Scout\Searchable;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read Model|\Eloquent|null $causer
  * @property-read Model|\Eloquent|null $subject
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ActivityLog causedBy(\Illuminate\Database\Eloquent\Model $causer)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ActivityLog forEvent(string $event)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ActivityLog inLog(string $logName)
@@ -52,6 +53,7 @@ use Laravel\Scout\Searchable;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ActivityLog whereSubjectType($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ActivityLog whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ActivityLog whereUserAgent($value)
+ *
  * @mixin \Eloquent
  */
 #[ObservedBy([ActivityLogObserver::class])]

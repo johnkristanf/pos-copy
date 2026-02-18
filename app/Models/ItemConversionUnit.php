@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \App\Models\UnitOfMeasure|null $base_uom
  * @property-read \App\Models\Items $item
  * @property-read \App\Models\UnitOfMeasure $purchase_uom
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ItemConversionUnit newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ItemConversionUnit newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ItemConversionUnit query()
@@ -25,6 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ItemConversionUnit whereItemId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ItemConversionUnit wherePurchaseUomId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ItemConversionUnit whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class ItemConversionUnit extends Model

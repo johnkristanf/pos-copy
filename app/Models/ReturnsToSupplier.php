@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Items> $items
  * @property-read int|null $items_count
  * @property-read \App\Models\Suppliers $supplier
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ReturnsToSupplier newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ReturnsToSupplier newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ReturnsToSupplier query()
@@ -33,6 +34,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ReturnsToSupplier whereSupplierId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ReturnsToSupplier whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ReturnsToSupplier whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class ReturnsToSupplier extends Model

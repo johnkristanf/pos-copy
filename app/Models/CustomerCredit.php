@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Customers $customer
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|CustomerCredit newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|CustomerCredit newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|CustomerCredit query()
@@ -25,6 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|CustomerCredit whereRating($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|CustomerCredit whereTerm($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|CustomerCredit whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class CustomerCredit extends Model

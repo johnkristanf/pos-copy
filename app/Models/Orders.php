@@ -42,6 +42,7 @@ use Laravel\Scout\Searchable;
  * @property-read \App\Models\User|null $user
  * @property-read \App\Models\VoidReason|null $void_reason
  * @property-read \App\Models\Voucher|null $voucher
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Orders newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Orders newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Orders onlyTrashed()
@@ -64,6 +65,7 @@ use Laravel\Scout\Searchable;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Orders whereVouchersUsed($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Orders withTrashed(bool $withTrashed = true)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Orders withoutTrashed()
+ *
  * @mixin \Eloquent
  */
 class Orders extends Model

@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \App\Models\StockLocation $destination_stock_location
  * @property-read \App\Models\Items $item
  * @property-read \App\Models\StockLocation $source_stock_location
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|StockTransfer newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|StockTransfer newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|StockTransfer query()
@@ -25,6 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|StockTransfer whereQuantity($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|StockTransfer whereSourceStockLocationId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|StockTransfer whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class StockTransfer extends Model

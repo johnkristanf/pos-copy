@@ -43,9 +43,9 @@ class OrdersService
 
         $queryCallback = function ($query) use ($filters) {
             $query->with([
-                'customer' => fn($q) => $q->select('id', 'name', 'customer_img', 'customer_code', 'location_id')
+                'customer' => fn ($q) => $q->select('id', 'name', 'customer_img', 'customer_code', 'location_id')
                     ->with('locations:id,country,region,province,municipality,barangay'),
-                'order_items.item' => fn($q) => $q->select('id', 'sku', 'image_url', 'description')
+                'order_items.item' => fn ($q) => $q->select('id', 'sku', 'image_url', 'description')
                     ->with('sellingPrices:id,item_id,unit_price,wholesale_price,credit_price')
                     ->with('discounts'),
                 'order_items.selected_uom:id,name,code',
@@ -68,8 +68,8 @@ class OrdersService
                         ->orWhere('orders.invoice_number', 'like', "%{$search}%")
                         ->orWhere('orders.po_number', 'like', "%{$search}%")
                         ->orWhere('orders.total_payable', 'like', "%{$search}%")
-                        ->orWhereHas('customer', fn($c) => $c->where('name', 'like', "%{$search}%"))
-                        ->orWhereHas('order_items.item', fn($i) => $i->where('description', 'like', "%{$search}%"));
+                        ->orWhereHas('customer', fn ($c) => $c->where('name', 'like', "%{$search}%"))
+                        ->orWhereHas('order_items.item', fn ($i) => $i->where('description', 'like', "%{$search}%"));
 
                     if (str_contains(strtoupper($search), 'ORD-')) {
                         $potentialId = (int) filter_var($search, FILTER_SANITIZE_NUMBER_INT);
@@ -101,7 +101,7 @@ class OrdersService
             $isIO = $user->roles->contains('code', config('roles.inventory_officer.code'));
 
             $query->with([
-                'customer' => fn($q) => $q->select('id', 'name', 'customer_img', 'customer_code', 'location_id')
+                'customer' => fn ($q) => $q->select('id', 'name', 'customer_img', 'customer_code', 'location_id')
                     ->with('locations:id,country,region,province,municipality,barangay'),
                 'payment_method:id,name,tag',
                 'voucher',
@@ -111,24 +111,24 @@ class OrdersService
                 'order_items.item' => function ($itemQ) {
                     $itemQ->select('id', 'sku', 'image_url', 'description')
                         ->withSum('stocks as total_available_stock', 'available_quantity')
-                        ->with(['conversion_units' => fn($q) => $q->orderBy('id', 'asc')->limit(1)])
+                        ->with(['conversion_units' => fn ($q) => $q->orderBy('id', 'asc')->limit(1)])
                         ->with('sellingPrices:id,item_id,unit_price,wholesale_price,credit_price')
                         ->with('discounts');
                 },
                 'order_items' => function ($orderItemsQ) use ($userLocationTags, $isIO, $status) {
-                    if (!$isIO || empty($userLocationTags)) {
+                    if (! $isIO || empty($userLocationTags)) {
                         return;
                     }
 
                     $orderItemsQ->whereHas('serve_locations', function ($serveLocQ) use ($userLocationTags, $status) {
                         $serveLocQ->whereRelation('stock_location', 'tag', $userLocationTags);
-                        $serveLocQ->when($status === Orders::ACTIVE, fn($q) => $q->whereColumn('quantity_to_serve', '>', 'quantity_served'));
-                        $serveLocQ->when($status === Orders::COMPLETED, fn($q) => $q->whereColumn('quantity_to_serve', '=', 'quantity_served'));
+                        $serveLocQ->when($status === Orders::ACTIVE, fn ($q) => $q->whereColumn('quantity_to_serve', '>', 'quantity_served'));
+                        $serveLocQ->when($status === Orders::COMPLETED, fn ($q) => $q->whereColumn('quantity_to_serve', '=', 'quantity_served'));
                     });
                 },
             ])
                 ->whereHas('order_items', function ($q) use ($status, $authenticatedUserID) {
-                    $q->whereHas('order_user_status', fn($sq) => $sq->where('status', $status)->where('user_id', $authenticatedUserID));
+                    $q->whereHas('order_user_status', fn ($sq) => $sq->where('status', $status)->where('user_id', $authenticatedUserID));
                 });
 
             $this->applyFilters($query, $filters);
@@ -145,8 +145,8 @@ class OrdersService
                         ->orWhere('orders.invoice_number', 'like', "%{$search}%")
                         ->orWhere('orders.po_number', 'like', "%{$search}%")
                         ->orWhere('orders.total_payable', 'like', "%{$search}%")
-                        ->orWhereHas('customer', fn($c) => $c->where('name', 'like', "%{$search}%"))
-                        ->orWhereHas('order_items.item', fn($i) => $i->where('description', 'like', "%{$search}%"));
+                        ->orWhereHas('customer', fn ($c) => $c->where('name', 'like', "%{$search}%"))
+                        ->orWhereHas('order_items.item', fn ($i) => $i->where('description', 'like', "%{$search}%"));
 
                     if (str_contains(strtoupper($search), 'ORD-')) {
                         $potentialId = (int) filter_var($search, FILTER_SANITIZE_NUMBER_INT);
@@ -176,7 +176,7 @@ class OrdersService
                 ->orderBy('id')
                 ->first();
 
-            if (!$serveLocation) {
+            if (! $serveLocation) {
                 return;
             }
 
@@ -225,19 +225,19 @@ class OrdersService
 
     public function setOrderStatusForSalesOfficerAndCashier($status, $orderItems): void
     {
-        $userIds = User::whereHas('roles', fn($q) => $q->whereIn('code', [config('roles.sales_officer.code'), config('roles.cashier.code')]))
+        $userIds = User::whereHas('roles', fn ($q) => $q->whereIn('code', [config('roles.sales_officer.code'), config('roles.cashier.code')]))
             ->pluck('id')
             ->toArray();
 
         foreach ($orderItems as $item) {
-            $item->order_user_status()->syncWithoutDetaching(collect($userIds)->mapWithKeys(fn($id) => [$id => ['status' => $status]])->toArray());
+            $item->order_user_status()->syncWithoutDetaching(collect($userIds)->mapWithKeys(fn ($id) => [$id => ['status' => $status]])->toArray());
         }
     }
 
     public function deductItemStockBasedLocation(Items $item, $selectedUomId, $location, $qty)
     {
         $stock = $item->stocks()->where('location_id', $location->id)->first();
-        if (!$stock || $qty <= 0) {
+        if (! $stock || $qty <= 0) {
             return $stock;
         }
 
@@ -256,9 +256,9 @@ class OrdersService
 
     protected function applyFilters($query, array $filters): void
     {
-        $query->when($filters['date_from'] ?? null, fn($q, $d) => $q->whereDate('created_at', '>=', $d))
-            ->when($filters['date_to'] ?? null, fn($q, $d) => $q->whereDate('created_at', '<=', $d))
-            ->when($filters['customer_id'] ?? null, fn($q, $id) => $q->where('customer_id', $id));
+        $query->when($filters['date_from'] ?? null, fn ($q, $d) => $q->whereDate('created_at', '>=', $d))
+            ->when($filters['date_to'] ?? null, fn ($q, $d) => $q->whereDate('created_at', '<=', $d))
+            ->when($filters['customer_id'] ?? null, fn ($q, $id) => $q->where('customer_id', $id));
     }
 
     public function createCompleteOrder(CreateOrderData $data): Orders
@@ -266,7 +266,7 @@ class OrdersService
         return DB::transaction(function () use ($data) {
             $paymentMethodTag = $data->payment_method->tag ?? null;
 
-            if (!$data->is_draft && $paymentMethodTag === PaymentMethods::CREDIT) {
+            if (! $data->is_draft && $paymentMethodTag === PaymentMethods::CREDIT) {
                 $customer = Customers::with('credit')->find($data->customer_id);
 
                 $this->checkCustomerCreditAvailability($customer, $data->total_payable, $data);
@@ -278,7 +278,7 @@ class OrdersService
                 $this->validateCreditLimitOverride($data, $newBalance, $creditLimit);
             }
 
-            if (!empty($data->draft_id)) {
+            if (! empty($data->draft_id)) {
                 $oldDraft = Orders::query()->find($data->draft_id);
                 if ($oldDraft?->is_draft) {
                     $oldDraft->delete($oldDraft->id);
@@ -302,7 +302,7 @@ class OrdersService
 
             $order->load('order_items');
 
-            if (!$data->is_draft) {
+            if (! $data->is_draft) {
                 $this->setOrderStatusForSalesOfficerAndCashier(Orders::ACTIVE, $order->order_items);
 
                 if ($paymentMethodTag === PaymentMethods::CREDIT) {
@@ -348,11 +348,11 @@ class OrdersService
     protected function processOrderedItem(Orders $order, OrderedItemData $orderedItem): void
     {
 
-        $item = Items::with(['conversion_units' => fn($q) => $q->orderBy('id', 'desc')])
+        $item = Items::with(['conversion_units' => fn ($q) => $q->orderBy('id', 'desc')])
             ->findOrFail($orderedItem->id);
 
-        $stockLocations = StockLocation::with(['stock' => fn($q) => $q->where('item_id', $item->id)->orderBy('created_at', 'asc')])
-            ->whereHas('stock', fn($q) => $q->where('item_id', $item->id))
+        $stockLocations = StockLocation::with(['stock' => fn ($q) => $q->where('item_id', $item->id)->orderBy('created_at', 'asc')])
+            ->whereHas('stock', fn ($q) => $q->where('item_id', $item->id))
             ->orderBy('created_at', 'asc')
             ->get();
 
@@ -556,7 +556,7 @@ class OrdersService
     public function getAllItemsOrderedByCustomer($customerId)
     {
         $customer = Customers::query()->find($customerId);
-        if (!$customer) {
+        if (! $customer) {
             return response()->json([
                 'success' => false,
                 'message' => 'Customer not found.',
@@ -574,7 +574,7 @@ class OrdersService
             ->whereIn('order_id', $orderIds)
             ->get();
 
-        $items = $orderItems->map(fn($orderItem) => [
+        $items = $orderItems->map(fn ($orderItem) => [
             'order_id' => $orderItem['order_id'],
             'order_item_id' => $orderItem['id'],
             'item_id' => $orderItem['item'] ? $orderItem['item']['id'] : null,
@@ -594,14 +594,14 @@ class OrdersService
     {
         $voidReason = VoidReason::query()->with('roles_require_credentials')->find($data->void_id);
 
-        if (!$voidReason) {
+        if (! $voidReason) {
             throw ValidationException::withMessages(['error' => 'Void Reason Not Found']);
         }
 
         if ($voidReason->require_password) {
             $user = User::with('roles')->where('email', $data->email)->first();
 
-            if (!$user || !Hash::check($data->password ?? '', $user->password)) {
+            if (! $user || ! Hash::check($data->password ?? '', $user->password)) {
                 throw ValidationException::withMessages(['error' => 'Invalid email or password.']);
             }
 
@@ -638,7 +638,7 @@ class OrdersService
 
         $user = User::with('roles')->where('email', $data->override_email)->first();
 
-        if (!$user || !Hash::check($data->override_password, $user->password)) {
+        if (! $user || ! Hash::check($data->override_password, $user->password)) {
             throw ValidationException::withMessages([
                 'error' => 'Invalid override credentials.',
             ]);
@@ -650,9 +650,9 @@ class OrdersService
         ];
 
         $userRoleCodes = $user->roles->pluck('code')->toArray();
-        $hasAuthorizedRole = !empty(array_intersect($userRoleCodes, $authorizedRoleCodes));
+        $hasAuthorizedRole = ! empty(array_intersect($userRoleCodes, $authorizedRoleCodes));
 
-        if (!$hasAuthorizedRole) {
+        if (! $hasAuthorizedRole) {
             throw ValidationException::withMessages([
                 'error' => 'User does not have permission to override void reason. Only EVP or Purchasing Sales Head can authorize.',
             ]);
@@ -662,7 +662,7 @@ class OrdersService
     public function getAllInvoiceNumbersByCustomer($customerId)
     {
         $customer = Customers::query()->find($customerId);
-        if (!$customer) {
+        if (! $customer) {
             return response()->json([
                 'success' => false,
                 'message' => 'Customer not found.',
@@ -689,7 +689,7 @@ class OrdersService
                 $sumQuantity = collect($orderItem->item->returned_from_customer_items)
                     ->where('invoice_number', $order->invoice_number)
                     ->where('status', config('statuses.returns_from_customer.approved'))
-                    ->sum(fn($returnItem) => $returnItem['pivot']['quantity'] ?? 0);
+                    ->sum(fn ($returnItem) => $returnItem['pivot']['quantity'] ?? 0);
                 $totalReturnsSales += $sumQuantity * $unitPrice;
             }
         }
@@ -705,7 +705,7 @@ class OrdersService
 
         $user = User::with('roles')->where('email', $email)->first();
 
-        if (!$user || !Hash::check($password, $user->password)) {
+        if (! $user || ! Hash::check($password, $user->password)) {
             throw ValidationException::withMessages([
                 'override_credentials' => 'Invalid override credentials.',
             ]);
@@ -717,9 +717,9 @@ class OrdersService
         ];
 
         $userRoleCodes = $user->roles->pluck('code')->toArray();
-        $hasAuthorizedRole = !empty(array_intersect($userRoleCodes, $authorizedRoleCodes));
+        $hasAuthorizedRole = ! empty(array_intersect($userRoleCodes, $authorizedRoleCodes));
 
-        if (!$hasAuthorizedRole) {
+        if (! $hasAuthorizedRole) {
             throw ValidationException::withMessages([
                 'override_credentials' => 'User does not have permission to override credit limit. Only EVP or Purchasing Sales Head can authorize.',
             ]);
@@ -730,7 +730,7 @@ class OrdersService
     {
         $exceedsLimit = $newBalance > $creditLimit;
 
-        if (!$exceedsLimit) {
+        if (! $exceedsLimit) {
             return;
         }
 
@@ -739,7 +739,7 @@ class OrdersService
 
         if (empty($overrideEmail) || empty($overridePassword)) {
             throw ValidationException::withMessages([
-                'credit_limit' => 'Credit limit exceeded. New balance (₱' . number_format($newBalance, 2) . ') exceeds limit (₱' . number_format($creditLimit, 2) . '). EVP or Purchasing Sales Head authorization required.',
+                'credit_limit' => 'Credit limit exceeded. New balance (₱'.number_format($newBalance, 2).') exceeds limit (₱'.number_format($creditLimit, 2).'). EVP or Purchasing Sales Head authorization required.',
             ]);
         }
 
@@ -751,8 +751,8 @@ class OrdersService
         $overrideEmail = $data->override_email ?? request('override_email');
         $overridePassword = $data->override_password ?? request('override_password');
 
-        if (!$customer?->credit) {
-            if (!empty($overrideEmail) && !empty($overridePassword)) {
+        if (! $customer?->credit) {
+            if (! empty($overrideEmail) && ! empty($overridePassword)) {
                 $this->verifyOverrideCredentials($overrideEmail, $overridePassword);
 
                 return;

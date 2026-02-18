@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\DB;
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Items> $items
  * @property-read int|null $items_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ItemCategory newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ItemCategory newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ItemCategory onlyTrashed()
@@ -29,6 +30,7 @@ use Illuminate\Support\Facades\DB;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ItemCategory whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ItemCategory withTrashed(bool $withTrashed = true)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ItemCategory withoutTrashed()
+ *
  * @mixin \Eloquent
  */
 class ItemCategory extends Model

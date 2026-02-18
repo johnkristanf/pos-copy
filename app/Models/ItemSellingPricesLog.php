@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Items $item
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ItemSellingPricesLog newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ItemSellingPricesLog newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ItemSellingPricesLog query()
@@ -23,6 +24,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ItemSellingPricesLog whereUnitPrice($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ItemSellingPricesLog whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ItemSellingPricesLog whereWholesalePrice($value)
+ *
  * @mixin \Eloquent
  */
 class ItemSellingPricesLog extends Model

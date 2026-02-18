@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\OrderCredits $order_credits
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderCreditPayments newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderCreditPayments newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderCreditPayments query()
@@ -19,6 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderCreditPayments whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderCreditPayments whereOrderCreditsId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderCreditPayments whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class OrderCreditPayments extends Model

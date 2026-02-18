@@ -25,6 +25,7 @@ use Laravel\Scout\Searchable;
  * @property-read int|null $items_count
  * @property-read \App\Models\User|null $preparer
  * @property-read \App\Models\User|null $rejecter
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ReturnFromCustomer newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ReturnFromCustomer newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ReturnFromCustomer query()
@@ -40,6 +41,7 @@ use Laravel\Scout\Searchable;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ReturnFromCustomer whereRejectedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ReturnFromCustomer whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ReturnFromCustomer whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class ReturnFromCustomer extends Model

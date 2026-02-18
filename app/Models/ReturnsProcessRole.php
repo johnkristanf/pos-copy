@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Roles $role
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ReturnsProcessRole newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ReturnsProcessRole newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ReturnsProcessRole query()
@@ -21,6 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ReturnsProcessRole whereRoleId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ReturnsProcessRole whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ReturnsProcessRole whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class ReturnsProcessRole extends Model

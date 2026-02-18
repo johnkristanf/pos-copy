@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\DB;
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Orders> $orders
  * @property-read int|null $orders_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Voucher newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Voucher newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Voucher onlyTrashed()
@@ -36,6 +37,7 @@ use Illuminate\Support\Facades\DB;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Voucher whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Voucher withTrashed(bool $withTrashed = true)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Voucher withoutTrashed()
+ *
  * @mixin \Eloquent
  */
 class Voucher extends Model

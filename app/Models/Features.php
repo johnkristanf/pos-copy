@@ -16,12 +16,14 @@ use Laravel\Scout\Searchable;
  * @property-read int|null $key_permissions_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Permissions> $permissions
  * @property-read int|null $permissions_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Features newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Features newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Features query()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Features whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Features whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Features whereTag($value)
+ *
  * @mixin \Eloquent
  */
 class Features extends Model

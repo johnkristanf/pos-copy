@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\DB;
  * @property-read \App\Models\Items $items
  * @property-read \App\Models\StockLocation $location
  * @property-read \App\Models\StockLocation $stock_location
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Stock newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Stock newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Stock query()
@@ -30,6 +31,7 @@ use Illuminate\Support\Facades\DB;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Stock whereItemId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Stock whereLocationId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Stock whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class Stock extends Model

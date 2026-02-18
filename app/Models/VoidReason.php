@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\VoidRolesRequireCredential> $roles_require_credentials
  * @property-read int|null $roles_require_credentials_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|VoidReason newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|VoidReason newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|VoidReason onlyTrashed()
@@ -26,6 +27,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|VoidReason whereVoidReason($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|VoidReason withTrashed(bool $withTrashed = true)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|VoidReason withoutTrashed()
+ *
  * @mixin \Eloquent
  */
 class VoidReason extends Model

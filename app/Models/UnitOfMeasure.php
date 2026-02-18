@@ -18,6 +18,7 @@ use Laravel\Scout\Searchable;
  * @property-read int|null $order_items_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\ItemConversionUnit> $purchaseConversionUnits
  * @property-read int|null $purchase_conversion_units_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|UnitOfMeasure newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|UnitOfMeasure newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|UnitOfMeasure query()
@@ -26,6 +27,7 @@ use Laravel\Scout\Searchable;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|UnitOfMeasure whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|UnitOfMeasure whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|UnitOfMeasure whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class UnitOfMeasure extends Model

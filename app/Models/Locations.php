@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read int|null $customers_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Suppliers> $suppliers
  * @property-read int|null $suppliers_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Locations newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Locations newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Locations query()
@@ -28,6 +29,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Locations whereProvince($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Locations whereRegion($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Locations whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class Locations extends Model

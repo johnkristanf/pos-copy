@@ -27,6 +27,7 @@ use Laravel\Scout\Searchable;
  * @property-read \App\Models\Locations|null $locations
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Orders> $orders
  * @property-read int|null $orders_count
+ *
  * @method static \Database\Factories\CustomersFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Customers newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Customers newQuery()
@@ -46,6 +47,7 @@ use Laravel\Scout\Searchable;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Customers whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Customers withTrashed(bool $withTrashed = true)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Customers withoutTrashed()
+ *
  * @mixin \Eloquent
  */
 class Customers extends Model

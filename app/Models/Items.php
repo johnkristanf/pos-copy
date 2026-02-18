@@ -54,6 +54,7 @@ use Laravel\Scout\Searchable;
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Stock> $stocks
  * @property-read int|null $stocks_count
  * @property-read \App\Models\Suppliers $supplier
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Items newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Items newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Items onlyTrashed()
@@ -75,6 +76,7 @@ use Laravel\Scout\Searchable;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Items whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Items withTrashed(bool $withTrashed = true)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Items withoutTrashed()
+ *
  * @mixin \Eloquent
  */
 class Items extends Model

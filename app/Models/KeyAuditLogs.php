@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\ApiKeys $api_keys
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|KeyAuditLogs newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|KeyAuditLogs newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|KeyAuditLogs query()
@@ -34,6 +35,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|KeyAuditLogs wherePlatform($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|KeyAuditLogs whereRequestMethod($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|KeyAuditLogs whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class KeyAuditLogs extends Model

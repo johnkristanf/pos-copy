@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \App\Models\Orders $order
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\OrderCreditPayments> $order_credit_payments
  * @property-read int|null $order_credit_payments_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderCredits newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderCredits newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderCredits query()
@@ -21,6 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderCredits whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderCredits whereOrderId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderCredits whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class OrderCredits extends Model

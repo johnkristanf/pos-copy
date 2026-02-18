@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Orders $order
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Payments newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Payments newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Payments query()
@@ -22,6 +23,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Payments whereOrderId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Payments wherePaidAmount($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Payments whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class Payments extends Model

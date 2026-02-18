@@ -66,9 +66,9 @@ class CustomersService
 
     protected function applyFilters(Builder $query, array $filters): void
     {
-        $query->when($filters['date_from'] ?? null, fn($q, $date) => $q->whereDate('created_at', '>=', $date))
-            ->when($filters['date_to'] ?? null, fn($q, $date) => $q->whereDate('created_at', '<=', $date))
-            ->when($filters['location_id'] ?? null, fn($q, $id) => $q->where('location_id', $id));
+        $query->when($filters['date_from'] ?? null, fn ($q, $date) => $q->whereDate('created_at', '>=', $date))
+            ->when($filters['date_to'] ?? null, fn ($q, $date) => $q->whereDate('created_at', '<=', $date))
+            ->when($filters['location_id'] ?? null, fn ($q, $id) => $q->where('location_id', $id));
     }
 
     public function createCustomer(CreateCustomerData $data): Customers
@@ -133,7 +133,7 @@ class CustomersService
         return DB::transaction(function () use ($customer, $data) {
             throw_if(
                 request()->has('credit_limit') && $data->credit_limit < 0,
-                fn() => new \InvalidArgumentException('Credit limit cannot be negative.')
+                fn () => new \InvalidArgumentException('Credit limit cannot be negative.')
             );
 
             $attributes = collect($data->except(
@@ -145,17 +145,17 @@ class CustomersService
                 'credit_rating'
             )->toArray())
                 ->only(array_keys(request()->all()))
-                ->when(request()->has('location'), fn($c) => $c->put('location_id', $this->resolveLocationId($data->location)))
+                ->when(request()->has('location'), fn ($c) => $c->put('location_id', $this->resolveLocationId($data->location)))
                 ->toArray();
 
-            if (!empty($attributes)) {
+            if (! empty($attributes)) {
                 $customer->update($attributes);
             }
 
             collect()
-                ->when(request()->has('credit_limit'), fn($c) => $c->put('limit', $data->credit_limit))
-                ->when(request()->has('credit_term'), fn($c) => $c->put('term', $data->credit_term))
-                ->when(request()->has('credit_rating'), fn($c) => $c->put('rating', $data->credit_rating))
+                ->when(request()->has('credit_limit'), fn ($c) => $c->put('limit', $data->credit_limit))
+                ->when(request()->has('credit_term'), fn ($c) => $c->put('term', $data->credit_term))
+                ->when(request()->has('credit_rating'), fn ($c) => $c->put('rating', $data->credit_rating))
                 ->whenNotEmpty(function ($creditData) use ($customer) {
                     $customer->credit()->updateOrCreate(
                         ['customer_id' => $customer->id],
@@ -206,7 +206,7 @@ class CustomersService
             $attachment->fill(['customer_id' => $customer->id])->save();
             $customer->fill(['customer_img' => $attachment->file_url])->save();
         } catch (\Exception $e) {
-            Log::error("Failed to link blob {$blobId} to customer {$customer->id}: " . $e->getMessage());
+            Log::error("Failed to link blob {$blobId} to customer {$customer->id}: ".$e->getMessage());
         }
     }
 
@@ -254,7 +254,7 @@ class CustomersService
     {
         $nextId = (Customers::max('id') ?? 0) + 1;
 
-        return 'CUST-' . str_pad((string) $nextId, 3, '0', STR_PAD_LEFT);
+        return 'CUST-'.str_pad((string) $nextId, 3, '0', STR_PAD_LEFT);
     }
 
     public function deleteCustomer(DeleteCustomerData $data): bool
@@ -279,7 +279,7 @@ class CustomersService
         if ($amount > 0 && $customer->credit) {
             $currentBalancePlusPayable = $customer->credit->balance + $amount;
 
-            if (!$skipValidation && ($currentBalancePlusPayable) > $customer->credit->limit) {
+            if (! $skipValidation && ($currentBalancePlusPayable) > $customer->credit->limit) {
                 throw ValidationException::withMessages(['error' => 'Credit limit exceeded for this customer.']);
             }
 

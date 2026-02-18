@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\DB;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Items $item
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ItemSellingPrice newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ItemSellingPrice newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ItemSellingPrice query()
@@ -26,6 +27,7 @@ use Illuminate\Support\Facades\DB;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ItemSellingPrice whereUnitPrice($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ItemSellingPrice whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ItemSellingPrice whereWholesalePrice($value)
+ *
  * @mixin \Eloquent
  */
 class ItemSellingPrice extends Model

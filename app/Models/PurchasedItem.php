@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\DB;
  * @property-read \App\Models\Items $item
  * @property-read \App\Models\PurchasedItemUOM|null $purchase_item_uom
  * @property-read \App\Models\Purchased $purchased
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|PurchasedItem newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|PurchasedItem newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|PurchasedItem query()
@@ -36,6 +37,7 @@ use Illuminate\Support\Facades\DB;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|PurchasedItem whereStockedInQuantity($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|PurchasedItem whereUnitPrice($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|PurchasedItem whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class PurchasedItem extends Model
