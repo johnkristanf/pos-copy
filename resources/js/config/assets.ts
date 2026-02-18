@@ -1,0 +1,19 @@
+export const APP_ASSETS = {
+  BRIDGE_LOGO: import.meta.env.VITE_BRIDGE_LOGO,
+  AUTH_COMPANY_BG: import.meta.env.VITE_AUTH_COMPANY_BG,
+  COMPANY_LOGO: import.meta.env.VITE_COMPANY_LOGO,
+  COMPANY_LOGO_PNG: import.meta.env.VITE_COMPANY_LOGO_PNG,
+  HEXAT_LOGO: import.meta.env.VITE_HEXAT_LOGO,
+  FAVICON: import.meta.env.VITE_FAVICON,
+  FAVICON16X16: import.meta.env.VITE_FAVICON16X16,
+  FAVICON32X32: import.meta.env.VITE_FAVICON32X32,
+  FAVICON_APPLE_TOUCHED: import.meta.env.VITE_FAVICON_APPLE_TOUCHED,
+  PESO_SIGN: import.meta.env.VITE_PESO_SIGN,
+  COMPANY_VAT: import.meta.env.VITE_COMPANY_VAT,
+  COMPANY_NAME: import.meta.env.VITE_COMPANY_NAME,
+  COMPANY_LOCATION: import.meta.env.VITE_COMPANY_LOCATION,
+}
+
+export const APP_CONSTANTS = {
+  OTP_MAX_LENGTH: 6,
+}

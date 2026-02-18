@@ -1,0 +1,40 @@
+#!/bin/sh
+
+# --- 1. ENVIRONMENT SETUP ---
+export PATH="$PATH:/c/Program Files/Git/usr/bin:/c/Program Files/nodejs:/c/xampp/php:/c/tools/php"
+
+# --- 2. GUI DETECTION ---
+if [ -z "$TERM" ] || [ "$TERM" = "dumb" ]; then
+    echo "🖥️  GUI detected. Skipping pre-push checks."
+    exit 0
+fi
+
+echo "🔄 Running pre-push checks..."
+
+# --- 3. CHECK FOR NPM & RUN FIX ---
+if command -v npm >/dev/null 2>&1; then
+    if [ -f "package.json" ] && grep -q "\"fix\":" package.json; then
+        echo "🛠️  Running npm run fix..."
+        npm run fix
+        if [ $? -ne 0 ]; then
+            echo "❌ Error: Code style or type checks failed."
+            echo "   Please run 'npm run fix' manually to see the errors."
+            exit 1
+        fi
+    fi
+fi
+
+# # --- 4. CHECK FOR COMPOSER & RUN FORMAT ---
+# if command -v composer >/dev/null 2>&1; then
+#     if [ -f "composer.json" ] && grep -q "\"format\":" composer.json; then
+#         echo "🐘 Running composer format..."
+#         composer format
+#         if [ $? -ne 0 ]; then
+#             echo "❌ Error: PHP coding standards failed."
+#             exit 1
+#         fi
+#     fi
+# fi
+
+echo "✅ All checks passed. Pushing..."
+exit 0

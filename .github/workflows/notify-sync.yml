@@ -1,0 +1,16 @@
+name: Notify Destination to Sync
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ping-destination:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Sync in Destination Repo
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: Bridge-Digital/Mindanamics-BridgePOS
+          event-type: sync-trigger

@@ -1,0 +1,156 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.4.2/schema.json",
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  },
+  "files": {
+    "includes": [
+      "**/*.js",
+      "**/*.jsx",
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.mts",
+      "**/*.mjs",
+      "**/*.json",
+      "!**/node_modules",
+      "!**/dist",
+      "!**/.vercel",
+      "!**/.changeset",
+      "!**/.cursor",
+      "!**/.well-known/workflow",
+      "!**/.prebuilt",
+      "!**/.turbo",
+      "!**/.next",
+      "!**/.env",
+      "!target",
+      "!**/tests/fixture",
+      "!**/tests/errors",
+      "!lodash",
+      "!dist",
+      "!RedisCommander.d.ts",
+      "!**/*.php",
+      "!app/**",
+      "!bootstrap/**",
+      "!config/**",
+      "!database/**",
+      "!routes/**",
+      "!tests/**",
+      "!vendor/**",
+      "!public/**",
+      "!public/pdf.worker.min.mjs",
+      "!tools/**"
+    ],
+    "ignoreUnknown": true
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80,
+    "attributePosition": "auto"
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "complexity": {
+        "noBannedTypes": "error",
+        "noUselessThisAlias": "error",
+        "noUselessTypeConstraint": "error",
+        "noStaticOnlyClass": "off",
+        "noForEach": "off",
+        "noUselessFragments": "off"
+      },
+      "correctness": {
+        "useExhaustiveDependencies": "off",
+        "noPrecisionLoss": "error",
+        "noUnusedVariables": "off",
+        "noNestedComponentDefinitions": "off",
+        "useUniqueElementIds": "off",
+        "noUnknownTypeSelector": "off"
+      },
+      "style": {
+        "noInferrableTypes": "off",
+        "noNamespace": "error",
+        "useAsConstAssertion": "error",
+        "useBlockStatements": "off",
+        "useConsistentArrayType": "warn",
+        "noNonNullAssertion": "off",
+        "useImportType": "off",
+        "useArrayLiterals": "off"
+      },
+      "suspicious": {
+        "noArrayIndexKey": "off",
+        "noExplicitAny": "off",
+        "noExtraNonNullAssertion": "error",
+        "noMisleadingInstantiator": "error",
+        "noUnsafeDeclarationMerging": "error",
+        "useAwait": "off",
+        "useIterableCallbackReturn": "off",
+        "noUnknownAtRules": "off",
+        "noTsIgnore": "off",
+        "noDocumentCookie": "off",
+        "noAssignInExpressions": "off",
+        "noNonNullAssertedOptionalChain": "off",
+        "useBiomeIgnoreFolder": "off"
+      },
+      "a11y": {
+        "noSvgWithoutTitle": "off",
+        "useFocusableInteractive": "off",
+        "useSemanticElements": "off",
+        "noPositiveTabindex": "off",
+        "useAriaPropsForRole": "off",
+        "noStaticElementInteractions": "off",
+        "useKeyWithClickEvents": "off"
+      },
+      "security": {
+        "noDangerouslySetInnerHtml": "off"
+      },
+      "performance": {
+        "noAccumulatingSpread": "warn"
+      }
+    }
+  },
+  "javascript": {
+    "jsxRuntime": "reactClassic",
+    "formatter": {
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "trailingCommas": "all",
+      "semicolons": "asNeeded",
+      "arrowParentheses": "always",
+      "bracketSpacing": true,
+      "bracketSameLine": false,
+      "quoteStyle": "double",
+      "attributePosition": "auto"
+    }
+  },
+  "html": {
+    "formatter": {
+      "enabled": true
+    }
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true,
+    "defaultBranch": "main"
+  },
+  "json": {
+    "formatter": {
+      "enabled": false,
+      "trailingCommas": "none"
+    }
+  }
+}

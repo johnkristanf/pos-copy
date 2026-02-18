@@ -1,0 +1,38 @@
+name: Discord Notification
+
+on:
+  push:
+    branches:
+      - main
+      - staging
+      - production
+
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Send Custom Discord Notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          ROLE_ID: "<@Bridge - DEV>"
+          LOGO_EMOJI: ":up:"
+        run: |
+          DATE=$(date +'%Y-%m-%d')
+          HEADER="$LOGO_EMOJI  [**Project Updates**]  **USI BridgePOS** | Finished the following features.\n- :stopwatch: Completed at: $DATE"
+
+          COMMIT_LIST=""
+
+          COMMITS=$(git log --format="- **%s** [#%h](https://github.com/${{ github.repository }}/commit/%H)" ${{ github.event.before }}..${{ github.event.after }})
+
+          PAYLOAD_CONTENT="$HEADER\n$COMMITS\n\n$ROLE_ID"
+          ESCAPED_CONTENT=$(echo "$PAYLOAD_CONTENT" | jq -R -s '.')
+
+          curl -H "Content-Type: application/json" \
+               -d "{\"content\": $ESCAPED_CONTENT}" \
+               $DISCORD_WEBHOOK
